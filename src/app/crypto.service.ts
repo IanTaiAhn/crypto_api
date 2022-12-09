@@ -9,7 +9,7 @@ export class CryptoService {
 
   constructor(private http: HttpClient) {
     this.getCryptos().subscribe((cryptos: any) => {
-      console.log(cryptos);
+      // console.log(cryptos);
       // planets.results.forEach((element: any) => console.log(element.name));
     });
    }

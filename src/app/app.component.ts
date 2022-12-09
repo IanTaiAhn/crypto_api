@@ -11,6 +11,10 @@ export class AppComponent {
   title = 'crypto_api';
 
   constructor(private cryptoService: CryptoService) {
-    console.log(cryptoService.getCryptos);
+    console.log("here?");
+    cryptoService.getCryptos().subscribe((cryptos: any) => {
+      console.log("why?");
+      console.log(cryptos);
+    })    
   }
 }
