@@ -9,21 +9,29 @@ import { CryptoService } from './crypto.service';
 })
 export class AppComponent {
   title = 'crypto_api';
+  cryptoObj: Array<any> = [];
+  public show0:boolean = false;
+  flagArray: Array<any> = [];
+
 
   constructor(private cryptoService: CryptoService) {
     cryptoService.getCryptos().subscribe((cryptos: any) => {
-      console.log("IT FIXED ITSELF!!?");
-      // cryptos is the object
-      // cryptos.markets is the array of the markets
-      console.log(cryptos.markets);
-      const cryptoKeys = Object.keys(cryptos.markets[0]);
-      const cryptoVals = Object.values(cryptos.markets[0]);
-      
-      cryptoKeys.forEach((el => {
-        // console.log(el);
+      this.cryptoObj = cryptos.markets;
+      cryptos.markets.forEach(((el: {price: any; symbol: any; }) => {
       }))
-      // console.log(Object.keys(cryptos.markets[0]));
-      // console.log(Object.values(cryptos.markets[0]));
+      console.log(this.cryptoObj);
     })    
+  }
+
+  toggle0() {
+    this.show0 = !this.show0;
+    console.log("event fired");
+    // console.log(event.target);
+    // return (event.target as unknown as HTMLInputElement["value"]);
+   }
+
+   iconChange(i: number){
+    this.flagArray[i] = !this.flagArray[i];
+    console.log(this.flagArray);
   }
 }

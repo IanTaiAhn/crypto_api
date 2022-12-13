@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 export class CryptoService {
 
   constructor(private http: HttpClient) {
-    this.getCryptos().subscribe((cryptos: any) => {
+    // this.getCryptos().subscribe((cryptos: any) => {
       // console.log(cryptos);
       // planets.results.forEach((element: any) => console.log(element.name));
-    });
+    // });
    }
 
    getCryptos(): Observable<any> {
-    const planetApiUrl = 'https://cryptingup.com/api/markets';
-    return this.http.get(planetApiUrl);
+    const cryptoApiUrl = 'https://cryptingup.com/api/markets';
+    return this.http.get(cryptoApiUrl);
   }
 }

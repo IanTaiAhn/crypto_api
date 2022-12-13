@@ -1,1 +1,26 @@
-<h1 class="text-4xl font-bold text-blue-600">Hello API calling!</h1>
+<!-- <p>Object</p>
+<div *ngFor="let item of object | keyvalue">
+  {{item.key}}:{{item.value}}
+</div> -->
+
+<!-- <p>Pair</p>
+<div *ngFor="let item of cryptoPair">
+    {{item}}
+</div> -->
+
+<div *ngFor="let item of cryptoObj; let index=index">
+    <p>{{index}}</p>
+    <p (click)="iconChange(index)">{{item.symbol}}</p>
+    <!-- Here we want the self-contained show logic. -->
+
+    <div *ngIf="flagArray[index] === true">
+        <div *ngFor="let el of item | keyvalue">
+            {{el.key}}:{{el.value}}
+        </div>
+    </div>
+
+</div>
+<!-- <div (click)="toggle0()"> Test toggs</div> -->
+<!-- <div *ngFor="let el of cryptoObj[index] | keyvalue">
+    <p>{{el.key}}:{{el.value}}</p>
+</div> -->
