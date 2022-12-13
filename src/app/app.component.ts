@@ -11,10 +11,19 @@ export class AppComponent {
   title = 'crypto_api';
 
   constructor(private cryptoService: CryptoService) {
-    console.log("here?");
     cryptoService.getCryptos().subscribe((cryptos: any) => {
-      console.log("why?");
-      console.log(cryptos);
+      console.log("IT FIXED ITSELF!!?");
+      // cryptos is the object
+      // cryptos.markets is the array of the markets
+      console.log(cryptos.markets);
+      const cryptoKeys = Object.keys(cryptos.markets[0]);
+      const cryptoVals = Object.values(cryptos.markets[0]);
+      
+      cryptoKeys.forEach((el => {
+        // console.log(el);
+      }))
+      // console.log(Object.keys(cryptos.markets[0]));
+      // console.log(Object.values(cryptos.markets[0]));
     })    
   }
 }
