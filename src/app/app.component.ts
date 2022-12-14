@@ -15,8 +15,6 @@ export class AppComponent {
   constructor(private cryptoService: CryptoService) {
     cryptoService.getCryptos().subscribe((cryptos: any) => {
       this.cryptoObj = cryptos.markets;
-      cryptos.markets.forEach(((el: {price: any; symbol: any; }) => {
-      }))
       console.log(this.cryptoObj);
     })    
   }
